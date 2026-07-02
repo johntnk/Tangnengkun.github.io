@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Engineer's Handbook：流水线复现与中文适配 | 项目详情</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="detail-header">
+        <nav class="nav container" aria-label="主导航">
+            <a class="brand" href="index.html">Tang Nengkun</a>
+            <div class="nav-links">
+                <a href="index.html#projects">项目经历</a>
+                <a href="index.html#research">研究沉淀</a>
+                <a href="index.html#contact">联系</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero container">
+            <p class="eyebrow">LLMOps 工程实践</p>
+            <h1>LLM Engineer's Handbook：流水线复现与中文适配</h1>
+            <p class="detail-summary">
+                基于开源 LLM Engineer's Handbook 代码体系做工程化学习和二次适配，梳理从数据采集、特征工程、
+                指令/偏好数据集生成、RAG 检索、SFT/DPO 训练到评估和部署的 LLMOps 链路，并补充中文平台与中文模型生态配置。
+            </p>
+            <div class="project-meta">
+                <span class="meta-item"><i class="fas fa-user"></i> ZenML Pipelines / RAG / SFT-DPO / 中文适配</span>
+                <span class="meta-item"><i class="fas fa-calendar-alt"></i> 2026.07</span>
+                <span class="meta-item"><i class="fas fa-code"></i> Python / ZenML / Qdrant / SageMaker</span>
+            </div>
+        </section>
+
+        <section class="section-band">
+            <div class="container detail-layout">
+                <div>
+                    <section class="content-section resume-section">
+                        <h2><i class="fas fa-info-circle"></i> 项目描述</h2>
+                        <p class="resume-description">
+                            围绕生产级 LLM 应用的常见链路，复现并拆解 LLM Engineer's Handbook 的工程结构；
+                            重点理解数据仓库、向量库、RAG、数据集生成、SFT/DPO、评估和推理服务之间的衔接关系。
+                            在此基础上补充中文结构导读、中文平台配置入口和中文模型生态适配。当前项目定位为工程学习与改造，
+                            不把仍停留在代码入口和配置层面的云端部分写成线上成果。
+                        </p>
+                    </section>
+
+                    <section class="content-section resume-section">
+                        <h2><i class="fas fa-list-ol"></i> 核心职责与贡献</h2>
+                        <ol class="contribution-list">
+                            <li>
+                                <strong>项目结构导读与分层梳理：</strong>
+                                编写中文结构导读，按 domain、application、infrastructure、model 四层解释核心代码；
+                                梳理 pipelines 与 steps 的关系，帮助从入口、配置、数据流和模型侧实现快速定位代码。
+                            </li>
+                            <li>
+                                <strong>ZenML 流水线理解与入口整理：</strong>
+                                梳理 digital_data_etl、feature_engineering、generate_datasets、end_to_end_data、training、
+                                evaluating 等流水线，以及 <code>tools/run.py</code> 中的命令行入口和 YAML 参数注入方式。
+                            </li>
+                            <li>
+                                <strong>中文内容源适配：</strong>
+                                补充知乎、CSDN、微信公众号等中文平台 ETL 配置，并为知乎、CSDN、微信公众号、微博、小红书
+                                增加 crawler 类和 dispatcher 注册方法；对尚未实现的解析逻辑保留 TODO、正文容器和反爬注意事项。
+                            </li>
+                            <li>
+                                <strong>中文模型生态配置：</strong>
+                                在 settings 和数据集生成逻辑中加入 DashScope / Qwen 配置路径，训练侧使用 Qwen2.5 基座、
+                                ChatML 模板，RAG 侧配置 bge-large-zh-v1.5 embedding 和 bge-reranker-v2-m3 reranker。
+                            </li>
+                            <li>
+                                <strong>RAG 与特征工程链路拆解：</strong>
+                                梳理原始文档查询、清洗、切块、embedding、Qdrant 写入和检索链路；
+                                RAG 查询侧覆盖 self-query、query expansion、并发向量检索、reranking 和 FastAPI <code>/rag</code> 服务入口。
+                            </li>
+                            <li>
+                                <strong>训练评估与部署边界整理：</strong>
+                                阅读并整理 SFT / DPO 微调、vLLM 批量生成、judge model 评估、SageMaker endpoint 部署/删除/测试入口；
+                                页面中仅描述代码入口和配置路径，不声明云端训练或线上服务已经完成。
+                            </li>
+                        </ol>
+                    </section>
+
+                    <section class="content-section">
+                        <h2><i class="fas fa-tools"></i> 技术栈与方法</h2>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">ZenML</span>
+                            <span class="tech-item">Poetry</span>
+                            <span class="tech-item">Docker</span>
+                            <span class="tech-item">MongoDB</span>
+                            <span class="tech-item">Qdrant</span>
+                            <span class="tech-item">FastAPI</span>
+                            <span class="tech-item">Hugging Face</span>
+                            <span class="tech-item">DashScope / Qwen</span>
+                            <span class="tech-item">Unsloth / TRL</span>
+                            <span class="tech-item">vLLM</span>
+                            <span class="tech-item">SageMaker</span>
+                        </div>
+                    </section>
+
+                    <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> 返回项目列表</a>
+                </div>
+
+                <aside class="side-panel" aria-label="LLMOps 流水线">
+                    <div class="side-visual">
+                        <div class="flow-list">
+                            <span>Data ETL: crawlers + MongoDB</span>
+                            <span>Feature: clean + chunk + embed</span>
+                            <span>Dataset: instruction / preference</span>
+                            <span>Model: SFT / DPO / evaluation</span>
+                            <span>Serving: RAG + FastAPI + SageMaker</span>
+                        </div>
+                    </div>
+                    <section class="content-section">
+                        <h2><i class="fas fa-folder-open"></i> 代表性产物</h2>
+                        <ul class="feature-list">
+                            <li><code>PROJECT_STRUCTURE_GUIDE_ZH.md</code></li>
+                            <li><code>configs/digital_data_etl_*.yaml</code></li>
+                            <li><code>pipelines/*.py</code></li>
+                            <li><code>steps/feature_engineering/</code></li>
+                            <li><code>llm_engineering/application/rag/</code></li>
+                            <li><code>llm_engineering/model/</code></li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tang Nengkun. Built with GitHub Pages.</p>
+        </div>
+    </footer>
+</body>
+</html>

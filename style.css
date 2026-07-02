@@ -232,7 +232,7 @@ h2 i {
 
 .project-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
 }
 
@@ -279,13 +279,7 @@ h2 i {
     padding: 18px;
 }
 
-.asuka-visual {
-    background:
-        linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(183, 121, 31, 0.18)),
-        #fffaf0;
-}
-
-.asuka-visual span {
+.project-visual span {
     min-height: 52px;
     display: flex;
     align-items: center;
@@ -299,8 +293,20 @@ h2 i {
     text-align: center;
 }
 
-.asuka-visual i {
+.project-visual i {
     color: var(--amber);
+}
+
+.asuka-visual {
+    background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(183, 121, 31, 0.18)),
+        #fffaf0;
+}
+
+.llmops-visual {
+    background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(15, 118, 110, 0.16)),
+        #f7fbff;
 }
 
 .project-body {
