@@ -3,97 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人介绍</title>
+    <title>唐能坤 | LLM / MLLM / Agent 工程实践</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="profile">
-                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20avatar%20portrait%20of%20a%20software%20engineer&image_size=square" alt="头像" class="avatar">
-                <h1 class="name">张小明</h1>
-                <p class="title">前端开发工程师</p>
+    <header class="site-header">
+        <nav class="nav container" aria-label="主导航">
+            <a class="brand" href="index.html">Tang Nengkun</a>
+            <div class="nav-links">
+                <a href="#projects">项目经历</a>
+                <a href="#research">研究沉淀</a>
+                <a href="#contact">联系</a>
+            </div>
+        </nav>
+
+        <div class="hero container">
+            <div class="hero-copy">
+                <p class="eyebrow">MLLM · LLM Training · Coding Agents</p>
+                <h1>面向大模型工程的个人项目集</h1>
+                <p class="hero-text">
+                    近期工作集中在多模态大模型训练实践、中文角色模型训练方案、以及本地 Coding Agent
+                    的运行时与评测。这里保留适合作为项目经历展示的部分。
+                </p>
+                <div class="hero-actions">
+                    <a class="primary-btn" href="#projects">查看项目</a>
+                    <a class="secondary-btn" href="https://github.com/johntnk" target="_blank" rel="noreferrer">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-panel" aria-label="工作流摘要">
+                <div class="panel-bar">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="panel-grid">
+                    <div>
+                        <strong>Focus</strong>
+                        <span>MLLM / LLM / Agent</span>
+                    </div>
+                    <div>
+                        <strong>Workflow</strong>
+                        <span>Context -> Trace -> Gate -> Execute -> Verify</span>
+                    </div>
+                    <div>
+                        <strong>Output</strong>
+                        <span>Code, docs, tests, evaluation plans</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="about">
-        <div class="container">
-            <h2><i class="fas fa-user"></i> 关于我</h2>
-            <p>我是一名热爱技术的前端开发工程师，拥有3年相关工作经验。擅长使用现代前端技术栈构建响应式、高性能的Web应用。我热衷于学习新技术，并将其应用到实际项目中。</p>
-        </div>
-    </section>
+    <main>
+        <section class="about section-band">
+            <div class="container narrow">
+                <h2><i class="fas fa-user"></i> 关于我</h2>
+                <p>
+                    我关注从论文理解到可运行工程的完整链路：模型结构拆解、数据与训练流程设计、评测协议、
+                    最小可复现实验和代码质量控制。当前项目以学习型研究工程为主，强调边界清晰、证据可追踪、
+                    不夸大未完成的训练结果。
+                </p>
+            </div>
+        </section>
 
-    <section class="education">
-        <div class="container">
-            <h2><i class="fas fa-graduation-cap"></i> 教育经历</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>计算机科学与技术</h3>
-                        <p class="institution">北京大学</p>
-                        <p class="period">2018年9月 - 2022年6月</p>
-                        <p class="description">主修课程：数据结构、算法、计算机网络、操作系统、数据库原理</p>
+        <section id="projects" class="projects section-band">
+            <div class="container">
+                <div class="section-heading">
+                    <h2><i class="fas fa-diagram-project"></i> 项目经历</h2>
+                    <p>筛选自当前工作区中最适合公开展示的工程与研究型项目。</p>
+                </div>
+
+                <div class="project-list">
+                    <a href="project1.html" class="project-link">
+                        <article class="project-item">
+                            <img src="assets/minillava-architecture.png" alt="Mini-LLaVA 视觉编码器与语言模型连接结构" class="project-image">
+                            <div class="project-body">
+                                <p class="project-kicker">多模态大模型</p>
+                                <h3>Mini-LLaVA 训练与推理框架</h3>
+                                <p class="role">独立实现 / 工程实践</p>
+                                <p class="period">2026.06</p>
+                                <p class="description">
+                                    基于 CLIP 视觉编码器、Projector、Qwen1.5 语言模型与 LoRA，整理从 MLLM 学习路线到
+                                    Mini-LLaVA 模块化训练、推理和测试的实践链路。
+                                </p>
+                                <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <a href="project2.html" class="project-link">
+                        <article class="project-item">
+                            <div class="project-visual asuka-visual" aria-hidden="true">
+                                <span>Base</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Chat SFT</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Character SFT</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>DPO</span>
+                            </div>
+                            <div class="project-body">
+                                <p class="project-kicker">LLM 训练设计</p>
+                                <h3>AsukaChat-1.3B 中文角色模型方案</h3>
+                                <p class="role">模型路线 / 数据与评测设计</p>
+                                <p class="period">2026.06</p>
+                                <p class="description">
+                                    设计 1.3B 参数中文角色聊天模型的阶段计划、3B token 数据配比、Tokenizer 约束、
+                                    SFT/DPO 数据规范和评测隔离规则。
+                                </p>
+                                <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <a href="project3.html" class="project-link">
+                        <article class="project-item">
+                            <img src="assets/pico-start.png" alt="Pico 本地 Coding Agent 终端启动界面" class="project-image">
+                            <div class="project-body">
+                                <p class="project-kicker">Agent 工程</p>
+                                <h3>本地 Coding Agent 运行时实践</h3>
+                                <p class="role">代码阅读 / 最小实现 / 测试</p>
+                                <p class="period">2026.06</p>
+                                <p class="description">
+                                    围绕 Pico 风格 Agent，复现从用户请求、提示构造、工具调用、状态更新到 trace/report
+                                    产物的最小闭环，并补充测试与基准记录。
+                                </p>
+                                <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="research section-band">
+            <div class="container">
+                <div class="section-heading">
+                    <h2><i class="fas fa-book-open"></i> 研究沉淀</h2>
+                    <p>这些内容更适合作为研究积累，而不是单独包装成项目经历。</p>
+                </div>
+                <div class="research-list">
+                    <div class="research-item">
+                        <h3>MLLM / VLM 文献矩阵</h3>
+                        <p>整理 BLIP-2、LLaVA、InstructBLIP、POPE 等论文的模型结构、数据协议、指标和复现风险。</p>
+                    </div>
+                    <div class="research-item">
+                        <h3>Diffusion 阅读与复现计划</h3>
+                        <p>记录 DDPM、DDIM、ControlNet 的核心方法、评估边界和分层 smoke / reproduction 计划。</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="projects">
-        <div class="container">
-            <h2><i class="fas fa-project-diagram"></i> 项目经历</h2>
-            <div class="project-list">
-                <a href="project1.html" class="project-link">
-                    <div class="project-item">
-                        <h3>企业管理系统</h3>
-                        <p class="role">前端开发工程师</p>
-                        <p class="period">2022年7月 - 2023年3月</p>
-                        <p class="description">使用React、TypeScript、Ant Design构建的企业管理系统，包含用户管理、权限控制、数据统计等功能。负责系统的前端架构设计和核心功能开发。</p>
-                        <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-                <a href="project2.html" class="project-link">
-                    <div class="project-item">
-                        <h3>电商网站重构</h3>
-                        <p class="role">前端开发工程师</p>
-                        <p class="period">2023年4月 - 2023年10月</p>
-                        <p class="description">将传统电商网站重构为现代响应式设计，使用Vue 3、Vite、Tailwind CSS等技术栈，提升了网站性能和用户体验。</p>
-                        <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact">
-        <div class="container">
-            <h2><i class="fas fa-envelope"></i> 联系方式</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>138****8888</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>example@example.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <span><a href="https://github.com/username" target="_blank">github.com/username</a></span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <span><a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></span>
+        <section id="contact" class="contact section-band">
+            <div class="container narrow">
+                <h2><i class="fas fa-envelope"></i> 联系方式</h2>
+                <div class="contact-info">
+                    <a class="contact-item" href="https://github.com/johntnk" target="_blank" rel="noreferrer">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/johntnk</span>
+                    </a>
+                    <a class="contact-item" href="https://github.com/johntnk/Tangnengkun.github.io" target="_blank" rel="noreferrer">
+                        <i class="fas fa-globe"></i>
+                        <span>主页仓库</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 个人介绍页面</p>
+            <p>&copy; 2026 Tang Nengkun. Built with GitHub Pages.</p>
         </div>
     </footer>
 </body>

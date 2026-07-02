@@ -3,223 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>电商网站重构 - 项目详情</title>
+    <title>AsukaChat-1.3B 中文角色模型方案 | 项目详情</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .project-detail {
-            padding: 60px 0;
-            background-color: white;
-        }
-        
-        .project-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .project-header h1 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .project-meta {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .meta-item i {
-            color: #667eea;
-        }
-        
-        .project-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        
-        .section h2::after {
-            margin-left: 0;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .tech-item {
-            padding: 8px 16px;
-            background-color: #f0f0f0;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #667eea;
-            font-weight: 500;
-        }
-        
-        .feature-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        .feature-list li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .feature-list li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #667eea;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        
-        .back-link:hover {
-            background-color: #555;
-        }
-        
-        @media screen and (max-width: 768px) {
-            .project-header h1 {
-                font-size: 2rem;
-            }
-            
-            .project-meta {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-        }
-    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="profile">
-                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20avatar%20portrait%20of%20a%20software%20engineer&image_size=square" alt="头像" class="avatar">
-                <h1 class="name">张小明</h1>
-                <p class="title">前端开发工程师</p>
+    <header class="detail-header">
+        <nav class="nav container" aria-label="主导航">
+            <a class="brand" href="index.html">Tang Nengkun</a>
+            <div class="nav-links">
+                <a href="index.html#projects">项目经历</a>
+                <a href="index.html#research">研究沉淀</a>
+                <a href="index.html#contact">联系</a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <section class="project-detail">
-        <div class="container">
-            <div class="project-header">
-                <h1>电商网站重构</h1>
-                <div class="project-meta">
-                    <div class="meta-item">
-                        <i class="fas fa-user"></i>
-                        <span>前端开发工程师</span>
-                    </div>
-                    <div class="meta-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>2023年4月 - 2023年10月</span>
-                    </div>
-                    <div class="meta-item">
-                        <i class="fas fa-briefcase"></i>
-                        <span>全职项目</span>
-                    </div>
-                </div>
+    <main>
+        <section class="detail-hero container">
+            <p class="eyebrow">LLM 训练设计与数据治理</p>
+            <h1>AsukaChat-1.3B 中文角色模型方案</h1>
+            <p class="detail-summary">
+                面向 1.3B 参数中文角色聊天模型，设计从 Base Pretraining 到 Natural Chat SFT、Character SFT、
+                Character DPO 的完整阶段计划。当前项目处于设计冻结候选与数据源评审阶段，尚未下载数据或训练模型。
+            </p>
+            <div class="project-meta">
+                <span class="meta-item"><i class="fas fa-user"></i> 模型路线 / 数据与评测设计</span>
+                <span class="meta-item"><i class="fas fa-calendar-alt"></i> 2026.06</span>
+                <span class="meta-item"><i class="fas fa-database"></i> 3B token 训练配比规划</span>
             </div>
+        </section>
 
-            <div class="project-content">
-                <div class="section">
-                    <h2><i class="fas fa-info-circle"></i> 项目概述</h2>
-                    <p>电商网站重构项目旨在将传统的电商网站升级为现代响应式设计，提升用户体验和网站性能。项目涉及前端技术栈的全面升级，从传统的jQuery+Bootstrap架构迁移到现代的Vue 3生态系统。</p>
+        <section class="section-band">
+            <div class="container detail-layout">
+                <div>
+                    <section class="content-section">
+                        <h2><i class="fas fa-info-circle"></i> 项目概述</h2>
+                        <p>
+                            AsukaChat-1.3B 是一个中文角色聊天模型项目设计。目标不是通用助手，而是完成一条角色一致性优先的训练链路：
+                            先训练中文对话倾向的 base model，再通过自然聊天 SFT、角色 SFT 和 DPO 强化角色风格、非助手化表达和多轮稳定性。
+                        </p>
+                    </section>
+
+                    <section class="content-section">
+                        <h2><i class="fas fa-layer-group"></i> 方案要点</h2>
+                        <ul class="feature-list">
+                            <li>模型目标：1.3B 参数、2048 context、纯中文聊天场景。</li>
+                            <li>训练路线：Base -> Chat-SFT -> Asuka-SFT -> Asuka-DPO。</li>
+                            <li>预训练配比：中文通用 20%、论坛/对话 35%、小说/对白 35%、情绪生活 5%、中文角色互动 5%。</li>
+                            <li>Tokenizer 方向：SentencePiece BPE、50K vocab、特殊 token 与对话标记稳定性检查。</li>
+                            <li>评测核心：角色一致性、非助手行为、多轮稳定、中文自然度、非重复和不过度礼貌。</li>
+                        </ul>
+                    </section>
+
+                    <section class="content-section">
+                        <h2><i class="fas fa-shield-alt"></i> 数据与安全边界</h2>
+                        <ul class="feature-list">
+                            <li>候选数据源只作为 inventory 记录，未批准下载、抓取、清洗、tokenize 或训练。</li>
+                            <li>显式排除代码数据、工具调用、客服对话、法律/医疗建议、未经授权私聊和未审查版权文本。</li>
+                            <li>评测 prompt 与训练数据隔离，避免把回归评测样本混入训练集。</li>
+                            <li>`.gitignore` 保护 raw / processed / tokenized 数据、模型权重、checkpoint、运行日志和密钥。</li>
+                        </ul>
+                    </section>
+
+                    <section class="content-section">
+                        <h2><i class="fas fa-tools"></i> 技术栈与方法</h2>
+                        <div class="tech-stack">
+                            <span class="tech-item">LLM Pretraining</span>
+                            <span class="tech-item">Megatron-LM 规划</span>
+                            <span class="tech-item">SentencePiece</span>
+                            <span class="tech-item">SFT</span>
+                            <span class="tech-item">DPO</span>
+                            <span class="tech-item">Dataset Audit</span>
+                            <span class="tech-item">JSONL Eval Prompts</span>
+                            <span class="tech-item">Training Reports</span>
+                        </div>
+                    </section>
+
+                    <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> 返回项目列表</a>
                 </div>
 
-                <div class="section">
-                    <h2><i class="fas fa-tools"></i> 技术栈</h2>
-                    <div class="tech-stack">
-                        <span class="tech-item">Vue 3</span>
-                        <span class="tech-item">Vite</span>
-                        <span class="tech-item">Tailwind CSS</span>
-                        <span class="tech-item">Pinia</span>
-                        <span class="tech-item">Vue Router</span>
-                        <span class="tech-item">Axios</span>
-                        <span class="tech-item">ESLint</span>
-                        <span class="tech-item">Prettier</span>
+                <aside class="side-panel" aria-label="项目阶段">
+                    <div class="side-visual">
+                        <div class="flow-list">
+                            <span>Stage 0: Design Freeze Candidate</span>
+                            <span>Stage 1: Source Inventory</span>
+                            <span>Stage 2: Data Build Plan</span>
+                            <span>Stage 3: Tokenizer</span>
+                            <span>Stage 4+: Smoke -> Trial -> Training</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="section">
-                    <h2><i class="fas fa-feather-alt"></i> 主要功能</h2>
-                    <ul class="feature-list">
-                        <li>响应式设计：适配桌面、平板和移动设备</li>
-                        <li>商品展示：分类浏览、搜索、筛选和排序</li>
-                        <li>购物车：添加、删除、修改商品数量</li>
-                        <li>结账流程：地址管理、支付方式选择、订单确认</li>
-                        <li>用户中心：个人信息管理、订单历史、收藏夹</li>
-                        <li>商品详情：图片轮播、规格选择、评价展示</li>
-                        <li>促销活动：优惠券、折扣码、限时抢购</li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2><i class="fas fa-tasks"></i> 我的职责</h2>
-                    <ul class="feature-list">
-                        <li>参与技术选型和架构设计</li>
-                        <li>负责商品展示和购物车模块的开发</li>
-                        <li>使用Tailwind CSS实现响应式布局</li>
-                        <li>优化网站性能，减少页面加载时间</li>
-                        <li>与后端团队协作，实现API集成</li>
-                        <li>编写单元测试和端到端测试</li>
-                        <li>参与代码评审和性能优化</li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2><i class="fas fa-star"></i> 项目成果</h2>
-                    <ul class="feature-list">
-                        <li>网站加载速度提升60%，首屏加载时间从3秒减少到1.2秒</li>
-                        <li>移动端转化率提升45%，用户停留时间增加30%</li>
-                        <li>代码维护性显著提高，开发效率提升50%</li>
-                        <li>成功迁移到现代前端技术栈，为后续功能扩展奠定基础</li>
-                        <li>建立了完整的前端开发规范和组件库</li>
-                    </ul>
-                </div>
-
-                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> 返回主页</a>
+                    <section class="content-section">
+                        <h2><i class="fas fa-folder-open"></i> 代表性产物</h2>
+                        <ul class="feature-list">
+                            <li><code>AsukaChat-1.3B/README.md</code></li>
+                            <li><code>docs/stage0_design_freeze.md</code></li>
+                            <li><code>docs/data_design.md</code></li>
+                            <li><code>configs/stage_plan.yaml</code></li>
+                            <li><code>eval/prompts/regression_prompts.seed.jsonl</code></li>
+                        </ul>
+                    </section>
+                </aside>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 个人介绍页面</p>
+            <p>&copy; 2026 Tang Nengkun. Built with GitHub Pages.</p>
         </div>
     </footer>
 </body>

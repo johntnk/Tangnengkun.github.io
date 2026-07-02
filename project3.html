@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地 Coding Agent 运行时实践 | 项目详情</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="detail-header">
+        <nav class="nav container" aria-label="主导航">
+            <a class="brand" href="index.html">Tang Nengkun</a>
+            <div class="nav-links">
+                <a href="index.html#projects">项目经历</a>
+                <a href="index.html#research">研究沉淀</a>
+                <a href="index.html#contact">联系</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero container">
+            <p class="eyebrow">Agent 工程与本地运行时</p>
+            <h1>本地 Coding Agent 运行时实践</h1>
+            <p class="detail-summary">
+                围绕 Pico 风格本地 Coding Agent，完成代码阅读、最小 agent loop 复现、工具安全边界、状态持久化、
+                trace/report 产物和测试基准整理。重点是理解一个能在代码仓库中持续工作的命令行 agent 如何闭环运行。
+            </p>
+            <div class="project-meta">
+                <span class="meta-item"><i class="fas fa-user"></i> 代码阅读 / 最小实现 / 测试</span>
+                <span class="meta-item"><i class="fas fa-calendar-alt"></i> 2026.06</span>
+                <span class="meta-item"><i class="fas fa-terminal"></i> Python CLI Agent</span>
+            </div>
+        </section>
+
+        <section class="section-band">
+            <div class="container detail-layout">
+                <div>
+                    <section class="content-section">
+                        <h2><i class="fas fa-info-circle"></i> 项目概述</h2>
+                        <p>
+                            项目来自 `agent项目学习` 工作区。以 Pico 本地 Coding Agent 为主要代码阅读对象，同时实现
+                            `hand-agent` 与 `tiny-agent` 两个教学规模复现，用于拆解 agent 的核心控制循环和安全工具接口。
+                        </p>
+                    </section>
+
+                    <section class="content-section">
+                        <h2><i class="fas fa-route"></i> Agent Loop</h2>
+                        <ul class="feature-list">
+                            <li>用户请求进入 runtime，由 context manager 构造当前 prompt。</li>
+                            <li>模型输出被解析为 tool call 或 final answer。</li>
+                            <li>工具执行层只允许受约束的文件读写与 patch 操作，并校验路径边界。</li>
+                            <li>TaskState 记录步骤、工具结果、错误和最终状态。</li>
+                            <li>每次运行输出 trace.jsonl、task_state.json、report.json，便于复盘和评测。</li>
+                        </ul>
+                    </section>
+
+                    <section class="content-section">
+                        <h2><i class="fas fa-vial"></i> 测试与评测</h2>
+                        <ul class="feature-list">
+                            <li>为最小 agent 实现补充 pytest，覆盖 parser、tool、state、run store、CLI 和 agent 限制。</li>
+                            <li>围绕 mini-pico 增加回归测试，避免历史 tool result 被误判为当前轮工具结果。</li>
+                            <li>整理 harness regression、context ablation、working memory、recovery / resume 等评测维度。</li>
+                            <li>敏感配置通过 `.env.example` 说明，不提交真实 API key 或私密环境变量。</li>
+                        </ul>
+                    </section>
+
+                    <section class="content-section">
+                        <h2><i class="fas fa-tools"></i> 技术栈</h2>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">CLI Runtime</span>
+                            <span class="tech-item">pytest</span>
+                            <span class="tech-item">JSONL Trace</span>
+                            <span class="tech-item">Tool Sandbox</span>
+                            <span class="tech-item">Context Management</span>
+                            <span class="tech-item">Session Store</span>
+                            <span class="tech-item">Benchmark Harness</span>
+                        </div>
+                    </section>
+
+                    <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> 返回项目列表</a>
+                </div>
+
+                <aside class="side-panel" aria-label="Pico 终端截图">
+                    <img src="assets/pico-start.png" alt="Pico 本地 Coding Agent 终端启动界面">
+                    <section class="content-section">
+                        <h2><i class="fas fa-folder-open"></i> 代表性产物</h2>
+                        <ul class="feature-list">
+                            <li><code>agent项目学习/README.md</code></li>
+                            <li><code>examples/hand-agent/</code></li>
+                            <li><code>examples/tiny-agent/</code></li>
+                            <li><code>pico-main/tests/</code></li>
+                            <li><code>pico-main/benchmarks/results/</code></li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tang Nengkun. Built with GitHub Pages.</p>
+        </div>
+    </footer>
+</body>
+</html>
