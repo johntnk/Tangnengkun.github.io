@@ -24,7 +24,7 @@
             <p class="eyebrow">多模态大模型工程实践</p>
             <h1>Mini-LLaVA：轻量多模态训练与推理框架</h1>
             <p class="detail-summary">
-                面向从 0 到 1 搭建 MLLM 的学习与工程实践，围绕 CLIP、BLIP、BLIP-2、LLaVA 和自建 Mini-LLaVA
+                围绕从基础图文模型到 Mini-LLaVA 原型的学习与工程实践，覆盖 CLIP、BLIP、BLIP-2、LLaVA 和自建 Mini-LLaVA
                 完成模型结构、数据格式、训练脚本、推理脚本和模块化重构，重点解决视觉特征如何接入语言模型、
                 多模态指令数据如何组织、训练链路如何可配置和可测试的问题。
             </p>
@@ -41,9 +41,9 @@
                     <section class="content-section resume-section">
                         <h2><i class="fas fa-info-circle"></i> 项目描述</h2>
                         <p class="resume-description">
-                            面向轻量级多模态大模型训练实践，搭建从图文基础模型理解到 Mini-LLaVA 工程实现的完整链路；
-                            围绕视觉编码器、Projector、LLM Decoder、LoRA 微调、answer-only loss、配置化训练和推理脚本做系统化整理，
-                            重点把论文结构拆解成可运行、可复盘、可继续扩展的工程模块。
+                            面向轻量级多模态大模型训练实践，把图文基础模型和 LLaVA 的关键结构拆成可运行的 Mini-LLaVA 原型；
+                            重点实现视觉编码器、Projector、LLM Decoder、LoRA 微调、answer-only loss、配置化训练和推理脚本，
+                            让后续更换模型、数据和任务时有清晰的代码入口。
                         </p>
                     </section>
 
@@ -52,7 +52,7 @@
                         <ol class="contribution-list">
                             <li>
                                 <strong>MLLM 学习路线与工程拆解：</strong>
-                                负责整理从 LLM 环境、SFT / LoRA / QLoRA、CLIP 图文检索、BLIP / BLIP-2 caption 到 LLaVA / Mini-LLaVA
+                                整理从 LLM 环境、SFT / LoRA / QLoRA、CLIP 图文检索、BLIP / BLIP-2 caption 到 LLaVA / Mini-LLaVA
                                 的阶段化路线，把 24 周学习计划落到可读笔记、代码目录和后续项目模块上。
                             </li>
                             <li>

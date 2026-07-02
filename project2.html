@@ -21,14 +21,14 @@
 
     <main>
         <section class="detail-hero container">
-            <p class="eyebrow">LLM 训练设计与数据治理</p>
+            <p class="eyebrow">LLM 训练方案与数据审查</p>
             <h1>AsukaChat-1.3B：中文角色聊天模型训练方案</h1>
             <p class="detail-summary">
                 面向 1.3B 参数中文角色聊天模型，设计从 Base Pretraining 到 Natural Chat SFT、Character SFT、
                 Character DPO 的完整阶段计划。当前项目处于设计冻结候选与数据源评审阶段，尚未下载数据或训练模型。
             </p>
             <div class="project-meta">
-                <span class="meta-item"><i class="fas fa-user"></i> 训练路线 / 数据治理 / 评测协议</span>
+                <span class="meta-item"><i class="fas fa-user"></i> 训练路线 / 数据审查 / 评测协议</span>
                 <span class="meta-item"><i class="fas fa-calendar-alt"></i> 2026.06</span>
                 <span class="meta-item"><i class="fas fa-database"></i> 1.3B 参数 / 3B token 规划</span>
             </div>
@@ -40,9 +40,9 @@
                     <section class="content-section resume-section">
                         <h2><i class="fas fa-info-circle"></i> 项目描述</h2>
                         <p class="resume-description">
-                            面向中文角色聊天模型从零训练，完成 AsukaChat-1.3B 的阶段化训练方案、数据配比、Tokenizer 约束、
-                            SFT / DPO 样本规范、评测协议和安全边界设计；重点解决角色模型容易变成通用助手、训练数据混杂、
-                            评测 prompt 污染训练集、以及未审查数据源直接进入训练的问题。
+                            围绕中文角色聊天模型的训练准备，完成 AsukaChat-1.3B 的阶段化训练方案、数据配比、Tokenizer 约束、
+                            SFT / DPO 样本规范和评测协议。当前重点是把模型目标、数据来源、样本格式和评测边界先写清楚，
+                            避免许可不清的数据直接进入后续实验，也避免训练集和评测集混在一起。
                         </p>
                     </section>
 
@@ -50,9 +50,9 @@
                         <h2><i class="fas fa-list-ol"></i> 核心职责与贡献</h2>
                         <ol class="contribution-list">
                             <li>
-                                <strong>训练路线与阶段门禁设计：</strong>
+                                <strong>训练路线与阶段计划设计：</strong>
                                 负责设计 Base Pretraining -> Natural Chat SFT -> Asuka Character SFT -> Character DPO 的整体路线，
-                                并拆成 Stage 0 到 Stage 10 的阶段计划，明确每一阶段的输入、产物、审批门禁和禁止动作。
+                                并拆成 Stage 0 到 Stage 10 的阶段计划，明确每一阶段的输入、产物、检查项和暂不执行事项。
                             </li>
                             <li>
                                 <strong>模型目标与训练规模定义：</strong>
@@ -65,9 +65,9 @@
                                 同时移除日文和中日混合训练池，降低语言漂移和目标混杂风险。
                             </li>
                             <li>
-                                <strong>数据源准入与风险审计：</strong>
+                                <strong>数据源审查表设计：</strong>
                                 对 CLUECorpus2020、LCCC / CDial-GPT、TVsub Chinese side、CPED、HER-Dataset、ChatHaruhi-54K
-                                等候选源建立 inventory，记录访问方式、许可状态、PII、污染、去重和版权风险；未通过 review 前不允许下载或训练。
+                                等候选源建立 inventory，记录访问方式、许可状态、PII、污染、去重和版权检查项；review 前不做下载或训练。
                             </li>
                             <li>
                                 <strong>Tokenizer 与数据质量规范：</strong>
@@ -77,12 +77,12 @@
                             <li>
                                 <strong>SFT / DPO 样本体系设计：</strong>
                                 为自然聊天 SFT、角色 SFT 和角色 DPO 设计样本格式、场景分布、chosen / rejected 偏好标准和拒绝类型，
-                                用数据层面控制 assistant tone、客服腔、过度温柔、纯辱骂、AI 自曝和口头禅堆叠。
+                                用数据层面减少通用助手腔、客服腔、过度温柔、纯辱骂、自称 AI 助手和口头禅堆叠。
                             </li>
                             <li>
                                 <strong>评测隔离与报告模板：</strong>
                                 将角色一致性、非助手行为、多轮稳定、中文自然度、非重复作为核心评测轴；
-                                建立 evaluation-only prompt、dataset card、tokenizer report、training report 和 eval report 模板，避免训练与评测边界混乱。
+                                建立 evaluation-only prompt、dataset card、tokenizer report、training report 和 eval report 模板，保证训练和评测分开记录。
                             </li>
                         </ol>
                     </section>

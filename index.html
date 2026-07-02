@@ -24,7 +24,7 @@
                 <h1>面向大模型工程的个人项目集</h1>
                 <p class="hero-text">
                     近期工作集中在多模态大模型训练实践、中文角色模型训练方案、以及本地 Coding Agent
-                    的运行时与评测。项目描述按“项目描述 + 核心职责与贡献”的简历格式整理，保留可被本地资料支持的部分。
+                    的运行时与评测。这里只放已经落到代码、文档或测试里的部分，学习笔记和阅读材料单独放在研究沉淀里。
                 </p>
                 <div class="hero-actions">
                     <a class="primary-btn" href="#projects">查看项目</a>
@@ -43,12 +43,12 @@
                         <span>MLLM / LLM / Agent</span>
                     </div>
                     <div>
-                        <strong>Workflow</strong>
-                        <span>Context -> Trace -> Gate -> Execute -> Verify</span>
+                        <strong>Process</strong>
+                        <span>Read -> Build -> Test -> Write</span>
                     </div>
                     <div>
                         <strong>Output</strong>
-                        <span>Code, docs, tests, evaluation plans</span>
+                        <span>Code, docs, tests, evaluation notes</span>
                     </div>
                 </div>
             </div>
@@ -60,9 +60,8 @@
             <div class="container narrow">
                 <h2><i class="fas fa-user"></i> 关于我</h2>
                 <p>
-                    我关注从论文理解到可运行工程的完整链路：模型结构拆解、数据与训练流程设计、评测协议、
-                    最小可复现实验和代码质量控制。当前项目以学习型研究工程为主，强调边界清晰、证据可追踪、
-                    不夸大未完成的训练结果。
+                    我关注从论文理解到可运行工程的落地过程：模型结构拆解、数据与训练流程设计、评测协议、
+                    最小可复现实验和代码质量控制。当前项目以学习型工程实践为主，页面中只写已经有资料支撑的工作。
                 </p>
             </div>
         </section>
@@ -84,7 +83,7 @@
                                 <p class="role">模型结构实现 / 训练推理工程 / 测试重构</p>
                                 <p class="period">2026.06</p>
                                 <p class="description">
-                                    面向从 0 到 1 搭建 MLLM 的学习与工程实践，围绕 CLIP、BLIP、LLaVA 和自建 Mini-LLaVA
+                                    围绕基础图文模型到 Mini-LLaVA 原型的学习与工程实践，基于 CLIP、BLIP、LLaVA 和自建 Mini-LLaVA
                                     完成模型结构、数据格式、训练脚本、推理脚本和模块化重构。
                                 </p>
                                 <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
@@ -106,11 +105,11 @@
                             <div class="project-body">
                                 <p class="project-kicker">LLM 训练设计</p>
                                 <h3>AsukaChat-1.3B：中文角色聊天模型训练方案</h3>
-                                <p class="role">训练路线 / 数据治理 / 评测协议</p>
+                                <p class="role">训练路线 / 数据审查 / 评测协议</p>
                                 <p class="period">2026.06</p>
                                 <p class="description">
                                     面向 1.3B 中文角色聊天模型，设计 3B token 预训练配比、SFT/DPO 数据规范、
-                                    tokenizer 检查、数据准入边界和角色一致性评测协议。
+                                    tokenizer 检查、数据源审查表和角色一致性评测协议。
                                 </p>
                                 <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
                             </div>
@@ -123,11 +122,11 @@
                             <div class="project-body">
                                 <p class="project-kicker">Agent 工程</p>
                                 <h3>Pico：本地代码智能体 Harness</h3>
-                                <p class="role">Agent harness / 上下文治理 / 任务恢复 / 评测审计</p>
+                                <p class="role">Agent harness / 上下文裁剪 / 任务恢复 / 回归评测</p>
                                 <p class="period">2026.06</p>
                                 <p class="description">
-                                    面向代码仓库长链路任务开发本地代码 agent harness，系统化设计模型接入、工具调用、
-                                    上下文管理、结构化记忆、checkpoint 恢复和运行审计。
+                                    为代码仓库里的多轮开发任务实现本地 code-agent harness，覆盖模型接入、工具调用、
+                                    上下文裁剪、结构化记忆、checkpoint 恢复和运行日志。
                                 </p>
                                 <div class="project-btn">查看详情 <i class="fas fa-arrow-right"></i></div>
                             </div>
