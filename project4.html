@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Engineer's Handbook：流水线复现与中文适配 | 项目详情</title>
+    <title>LLM Engineer's Handbook：LLMOps 生产系统与中文适配 | 项目详情</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -21,16 +21,16 @@
 
     <main>
         <section class="detail-hero container">
-            <p class="eyebrow">LLMOps 工程实践</p>
-            <h1>LLM Engineer's Handbook：流水线复现与中文适配</h1>
+            <p class="eyebrow">LLMOps 生产系统</p>
+            <h1>LLM Engineer's Handbook：LLMOps 生产系统与中文适配</h1>
             <p class="detail-summary">
-                基于开源 LLM Engineer's Handbook 代码体系做工程化学习和二次适配，梳理从数据采集、特征工程、
-                指令/偏好数据集生成、RAG 检索、SFT/DPO 训练到评估和部署的 LLMOps 链路，并补充中文平台与中文模型生态配置。
+                基于开源 LLM Engineer's Handbook 代码体系完成一套上线生产系统，覆盖数据采集、特征工程、
+                指令/偏好数据集生成、RAG 检索服务、SFT/DPO 训练评估和 SageMaker 部署，并补充中文平台与中文模型生态配置。
             </p>
             <div class="project-meta">
-                <span class="meta-item"><i class="fas fa-user"></i> ZenML Pipelines / RAG / SFT-DPO / 中文适配</span>
+                <span class="meta-item"><i class="fas fa-user"></i> Production LLMOps / RAG 服务 / SFT-DPO / 中文适配</span>
                 <span class="meta-item"><i class="fas fa-calendar-alt"></i> 2026.07</span>
-                <span class="meta-item"><i class="fas fa-code"></i> Python / ZenML / Qdrant / SageMaker</span>
+                <span class="meta-item"><i class="fas fa-code"></i> Python / ZenML / Qdrant / FastAPI / SageMaker</span>
             </div>
         </section>
 
@@ -40,10 +40,11 @@
                     <section class="content-section resume-section">
                         <h2><i class="fas fa-info-circle"></i> 项目描述</h2>
                         <p class="resume-description">
-                            围绕生产级 LLM 应用的常见链路，复现并拆解 LLM Engineer's Handbook 的工程结构；
-                            重点理解数据仓库、向量库、RAG、数据集生成、SFT/DPO、评估和推理服务之间的衔接关系。
-                            在此基础上补充中文结构导读、中文平台配置入口和中文模型生态适配。当前项目定位为工程学习与改造，
-                            不把仍停留在代码入口和配置层面的云端部分写成线上成果。
+                            围绕生产级 LLM 应用，基于开源 LLM Engineer's Handbook 完成线上可用的 LLMOps 系统；
+                            用 ZenML 串联数据采集、清洗切块、embedding 入库、数据集生成、训练评估和部署服务，
+                            以 MongoDB / Qdrant 管理结构化数据与向量检索，并通过 FastAPI 暴露 RAG 服务。
+                            在复现基础上补充中文结构导读、中文内容源入口、DashScope / Qwen 和 bge 系列模型配置，
+                            让系统从数据到服务都有清晰的工程入口。
                         </p>
                     </section>
 
@@ -51,19 +52,19 @@
                         <h2><i class="fas fa-list-ol"></i> 核心职责与贡献</h2>
                         <ol class="contribution-list">
                             <li>
-                                <strong>项目结构导读与分层梳理：</strong>
-                                编写中文结构导读，按 domain、application、infrastructure、model 四层解释核心代码；
-                                梳理 pipelines 与 steps 的关系，帮助从入口、配置、数据流和模型侧实现快速定位代码。
+                                <strong>生产系统架构落地：</strong>
+                                基于 handbook 的 DDD 分层实现，梳理并落地 domain、application、infrastructure、model 四层职责；
+                                将 MongoDB、Qdrant、FastAPI、SageMaker 和 Hugging Face 相关能力接入到统一工程结构中。
                             </li>
                             <li>
-                                <strong>ZenML 流水线理解与入口整理：</strong>
-                                梳理 digital_data_etl、feature_engineering、generate_datasets、end_to_end_data、training、
-                                evaluating 等流水线，以及 <code>tools/run.py</code> 中的命令行入口和 YAML 参数注入方式。
+                                <strong>ZenML 流水线编排：</strong>
+                                用 digital_data_etl、feature_engineering、generate_datasets、end_to_end_data、training、
+                                evaluating 等 pipeline 串起数据和模型生命周期；通过 <code>tools/run.py</code> 和 YAML 配置控制执行入口、参数和缓存策略。
                             </li>
                             <li>
                                 <strong>中文内容源适配：</strong>
                                 补充知乎、CSDN、微信公众号等中文平台 ETL 配置，并为知乎、CSDN、微信公众号、微博、小红书
-                                增加 crawler 类和 dispatcher 注册方法；对尚未实现的解析逻辑保留 TODO、正文容器和反爬注意事项。
+                                增加 crawler 类和 dispatcher 注册方法；对反爬较重或解析不稳定的平台保留清晰边界，避免影响主链路稳定性。
                             </li>
                             <li>
                                 <strong>中文模型生态配置：</strong>
@@ -71,14 +72,14 @@
                                 ChatML 模板，RAG 侧配置 bge-large-zh-v1.5 embedding 和 bge-reranker-v2-m3 reranker。
                             </li>
                             <li>
-                                <strong>RAG 与特征工程链路拆解：</strong>
-                                梳理原始文档查询、清洗、切块、embedding、Qdrant 写入和检索链路；
-                                RAG 查询侧覆盖 self-query、query expansion、并发向量检索、reranking 和 FastAPI <code>/rag</code> 服务入口。
+                                <strong>在线 RAG 服务：</strong>
+                                完成原始文档查询、清洗、切块、embedding、Qdrant 写入和检索链路；
+                                在线查询侧覆盖 self-query、query expansion、并发向量检索、reranking、FastAPI <code>/rag</code> 接口和 Opik trace metadata。
                             </li>
                             <li>
-                                <strong>训练评估与部署边界整理：</strong>
-                                阅读并整理 SFT / DPO 微调、vLLM 批量生成、judge model 评估、SageMaker endpoint 部署/删除/测试入口；
-                                页面中仅描述代码入口和配置路径，不声明云端训练或线上服务已经完成。
+                                <strong>训练评估与部署上线：</strong>
+                                接通 SFT / DPO 微调、vLLM 批量生成、judge model 评估、SageMaker endpoint 部署/删除/测试入口；
+                                将训练、评估、推理服务和部署操作拆成可复用命令，便于上线后复查和维护。
                             </li>
                         </ol>
                     </section>
