@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AsukaChat-1.3B 中文角色模型方案 | 项目详情</title>
+    <title>AsukaChat-1.3B：中文角色聊天模型训练方案 | 项目详情</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -22,48 +22,69 @@
     <main>
         <section class="detail-hero container">
             <p class="eyebrow">LLM 训练设计与数据治理</p>
-            <h1>AsukaChat-1.3B 中文角色模型方案</h1>
+            <h1>AsukaChat-1.3B：中文角色聊天模型训练方案</h1>
             <p class="detail-summary">
                 面向 1.3B 参数中文角色聊天模型，设计从 Base Pretraining 到 Natural Chat SFT、Character SFT、
                 Character DPO 的完整阶段计划。当前项目处于设计冻结候选与数据源评审阶段，尚未下载数据或训练模型。
             </p>
             <div class="project-meta">
-                <span class="meta-item"><i class="fas fa-user"></i> 模型路线 / 数据与评测设计</span>
+                <span class="meta-item"><i class="fas fa-user"></i> 训练路线 / 数据治理 / 评测协议</span>
                 <span class="meta-item"><i class="fas fa-calendar-alt"></i> 2026.06</span>
-                <span class="meta-item"><i class="fas fa-database"></i> 3B token 训练配比规划</span>
+                <span class="meta-item"><i class="fas fa-database"></i> 1.3B 参数 / 3B token 规划</span>
             </div>
         </section>
 
         <section class="section-band">
             <div class="container detail-layout">
                 <div>
-                    <section class="content-section">
-                        <h2><i class="fas fa-info-circle"></i> 项目概述</h2>
-                        <p>
-                            AsukaChat-1.3B 是一个中文角色聊天模型项目设计。目标不是通用助手，而是完成一条角色一致性优先的训练链路：
-                            先训练中文对话倾向的 base model，再通过自然聊天 SFT、角色 SFT 和 DPO 强化角色风格、非助手化表达和多轮稳定性。
+                    <section class="content-section resume-section">
+                        <h2><i class="fas fa-info-circle"></i> 项目描述</h2>
+                        <p class="resume-description">
+                            面向中文角色聊天模型从零训练，完成 AsukaChat-1.3B 的阶段化训练方案、数据配比、Tokenizer 约束、
+                            SFT / DPO 样本规范、评测协议和安全边界设计；重点解决角色模型容易变成通用助手、训练数据混杂、
+                            评测 prompt 污染训练集、以及未审查数据源直接进入训练的问题。
                         </p>
                     </section>
 
-                    <section class="content-section">
-                        <h2><i class="fas fa-layer-group"></i> 方案要点</h2>
-                        <ul class="feature-list">
-                            <li>模型目标：1.3B 参数、2048 context、纯中文聊天场景。</li>
-                            <li>训练路线：Base -> Chat-SFT -> Asuka-SFT -> Asuka-DPO。</li>
-                            <li>预训练配比：中文通用 20%、论坛/对话 35%、小说/对白 35%、情绪生活 5%、中文角色互动 5%。</li>
-                            <li>Tokenizer 方向：SentencePiece BPE、50K vocab、特殊 token 与对话标记稳定性检查。</li>
-                            <li>评测核心：角色一致性、非助手行为、多轮稳定、中文自然度、非重复和不过度礼貌。</li>
-                        </ul>
-                    </section>
-
-                    <section class="content-section">
-                        <h2><i class="fas fa-shield-alt"></i> 数据与安全边界</h2>
-                        <ul class="feature-list">
-                            <li>候选数据源只作为 inventory 记录，未批准下载、抓取、清洗、tokenize 或训练。</li>
-                            <li>显式排除代码数据、工具调用、客服对话、法律/医疗建议、未经授权私聊和未审查版权文本。</li>
-                            <li>评测 prompt 与训练数据隔离，避免把回归评测样本混入训练集。</li>
-                            <li>`.gitignore` 保护 raw / processed / tokenized 数据、模型权重、checkpoint、运行日志和密钥。</li>
-                        </ul>
+                    <section class="content-section resume-section">
+                        <h2><i class="fas fa-list-ol"></i> 核心职责与贡献</h2>
+                        <ol class="contribution-list">
+                            <li>
+                                <strong>训练路线与阶段门禁设计：</strong>
+                                负责设计 Base Pretraining -> Natural Chat SFT -> Asuka Character SFT -> Character DPO 的整体路线，
+                                并拆成 Stage 0 到 Stage 10 的阶段计划，明确每一阶段的输入、产物、审批门禁和禁止动作。
+                            </li>
+                            <li>
+                                <strong>模型目标与训练规模定义：</strong>
+                                固定 1.3B 参数、2048 context、3B token 预训练预算和纯中文聊天场景；把项目目标定义为角色一致性和自然聊天，
+                                而不是通用助手、代码模型、数学模型或安全拒答模型。
+                            </li>
+                            <li>
+                                <strong>预训练数据配比设计：</strong>
+                                设计 5 类数据池：中文通用 20%、中文论坛/对话 35%、小说/对白 35%、情绪生活 5%、中文角色互动 5%；
+                                同时移除日文和中日混合训练池，降低语言漂移和目标混杂风险。
+                            </li>
+                            <li>
+                                <strong>数据源准入与风险审计：</strong>
+                                对 CLUECorpus2020、LCCC / CDial-GPT、TVsub Chinese side、CPED、HER-Dataset、ChatHaruhi-54K
+                                等候选源建立 inventory，记录访问方式、许可状态、PII、污染、去重和版权风险；未通过 review 前不允许下载或训练。
+                            </li>
+                            <li>
+                                <strong>Tokenizer 与数据质量规范：</strong>
+                                设计 SentencePiece BPE、50K vocab、特殊 token、byte fallback、中文压缩率和对话标点稳定性检查；
+                                同时定义预训练、SFT、DPO 的去重、乱码过滤、模板重复和低质量样本拒绝规则。
+                            </li>
+                            <li>
+                                <strong>SFT / DPO 样本体系设计：</strong>
+                                为自然聊天 SFT、角色 SFT 和角色 DPO 设计样本格式、场景分布、chosen / rejected 偏好标准和拒绝类型，
+                                用数据层面控制 assistant tone、客服腔、过度温柔、纯辱骂、AI 自曝和口头禅堆叠。
+                            </li>
+                            <li>
+                                <strong>评测隔离与报告模板：</strong>
+                                将角色一致性、非助手行为、多轮稳定、中文自然度、非重复作为核心评测轴；
+                                建立 evaluation-only prompt、dataset card、tokenizer report、training report 和 eval report 模板，避免训练与评测边界混乱。
+                            </li>
+                        </ol>
                     </section>
 
                     <section class="content-section">

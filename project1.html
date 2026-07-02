@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-LLaVA 训练与推理框架 | 项目详情</title>
+    <title>Mini-LLaVA：轻量多模态训练与推理框架 | 项目详情</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -22,13 +22,14 @@
     <main>
         <section class="detail-hero container">
             <p class="eyebrow">多模态大模型工程实践</p>
-            <h1>Mini-LLaVA 训练与推理框架</h1>
+            <h1>Mini-LLaVA：轻量多模态训练与推理框架</h1>
             <p class="detail-summary">
-                从 LLM / MLLM 基础学习、CLIP / BLIP / LLaVA 论文与代码实践出发，整理并实现轻量级 Mini-LLaVA
-                训练与推理链路，重点关注视觉编码器到语言模型的连接、数据格式、LoRA 微调和工程可测试性。
+                面向从 0 到 1 搭建 MLLM 的学习与工程实践，围绕 CLIP、BLIP、BLIP-2、LLaVA 和自建 Mini-LLaVA
+                完成模型结构、数据格式、训练脚本、推理脚本和模块化重构，重点解决视觉特征如何接入语言模型、
+                多模态指令数据如何组织、训练链路如何可配置和可测试的问题。
             </p>
             <div class="project-meta">
-                <span class="meta-item"><i class="fas fa-user"></i> 独立实现 / 工程实践</span>
+                <span class="meta-item"><i class="fas fa-user"></i> 模型结构实现 / 训练推理工程 / 测试重构</span>
                 <span class="meta-item"><i class="fas fa-calendar-alt"></i> 2026.06</span>
                 <span class="meta-item"><i class="fas fa-code"></i> PyTorch / Transformers</span>
             </div>
@@ -37,24 +38,49 @@
         <section class="section-band">
             <div class="container detail-layout">
                 <div>
-                    <section class="content-section">
-                        <h2><i class="fas fa-info-circle"></i> 项目概述</h2>
-                        <p>
-                            该项目来自 `From0to1-MLLM-StudyLog-main` 的多模态学习与实践主线。工作内容覆盖环境搭建、
-                            LLM 推理脚本、SFT / LoRA / QLoRA 入门、CLIP 图文检索、BLIP / BLIP-2 caption、以及
-                            Mini-LLaVA 的训练脚本、推理脚本和模块化重构。
+                    <section class="content-section resume-section">
+                        <h2><i class="fas fa-info-circle"></i> 项目描述</h2>
+                        <p class="resume-description">
+                            面向轻量级多模态大模型训练实践，搭建从图文基础模型理解到 Mini-LLaVA 工程实现的完整链路；
+                            围绕视觉编码器、Projector、LLM Decoder、LoRA 微调、answer-only loss、配置化训练和推理脚本做系统化整理，
+                            重点把论文结构拆解成可运行、可复盘、可继续扩展的工程模块。
                         </p>
                     </section>
 
-                    <section class="content-section">
-                        <h2><i class="fas fa-sitemap"></i> 架构与流程</h2>
-                        <ul class="feature-list">
-                            <li>视觉侧使用 CLIP ViT 风格编码器提取 patch-level 图像特征。</li>
-                            <li>通过两层 MLP Projector 将视觉特征映射到 LLM embedding 空间。</li>
-                            <li>语言侧使用 Qwen1.5 量级模型作为 decoder，并用 LoRA 控制可训练参数规模。</li>
-                            <li>训练数据以 image + conversation 形式进入 DataLoader，只对 answer 部分计算 loss。</li>
-                            <li>训练与推理参数通过 YAML 配置管理，便于后续切换模型、数据和生成参数。</li>
-                        </ul>
+                    <section class="content-section resume-section">
+                        <h2><i class="fas fa-list-ol"></i> 核心职责与贡献</h2>
+                        <ol class="contribution-list">
+                            <li>
+                                <strong>MLLM 学习路线与工程拆解：</strong>
+                                负责整理从 LLM 环境、SFT / LoRA / QLoRA、CLIP 图文检索、BLIP / BLIP-2 caption 到 LLaVA / Mini-LLaVA
+                                的阶段化路线，把 24 周学习计划落到可读笔记、代码目录和后续项目模块上。
+                            </li>
+                            <li>
+                                <strong>Mini-LLaVA 模型结构实现：</strong>
+                                设计并实现 CLIP-ViT 视觉编码器、两层 MLP Projector、Qwen1.5 语言模型 decoder 的连接方式；
+                                通过连续视觉特征映射到 LLM embedding 空间，完成 image token 与文本 token 的拼接输入。
+                            </li>
+                            <li>
+                                <strong>训练链路与损失设计：</strong>
+                                实现 image + conversation 到 token 序列的数据加载与 collator，训练时屏蔽图片和 prompt 部分，
+                                只对 answer 部分计算交叉熵损失；支持 projector 与 LLM LoRA 作为主要可训练参数。
+                            </li>
+                            <li>
+                                <strong>配置化训练与推理工程：</strong>
+                                将模型路径、数据路径、batch size、学习率、checkpoint、生成参数等集中到 YAML 配置；
+                                提供单卡 / Accelerate 启动路径和独立推理脚本，降低后续切换模型和数据集时的改动成本。
+                            </li>
+                            <li>
+                                <strong>多任务数据扩展：</strong>
+                                在后续模块中把 caption、VQA、QA 等任务统一成指令对话格式，补充数据转换工具和多任务采样思路，
+                                为 Mini-LLaVA 从单一 caption 训练扩展到多任务 SFT 做准备。
+                            </li>
+                            <li>
+                                <strong>代码重构与质量控制：</strong>
+                                将早期训练代码拆分为 dataset、vision_encoder、llm_decoder、mini_llava、train、infer 等模块，
+                                并补充 shape 校验、前向检查和最小单元测试，避免重构后接口不一致。
+                            </li>
+                        </ol>
                     </section>
 
                     <section class="content-section">
@@ -70,16 +96,6 @@
                             <span class="tech-item">YAML</span>
                             <span class="tech-item">pytest</span>
                         </div>
-                    </section>
-
-                    <section class="content-section">
-                        <h2><i class="fas fa-check-circle"></i> 产出与边界</h2>
-                        <ul class="feature-list">
-                            <li>整理 24 周 MLLM 学习路线，覆盖 CLIP、BLIP、BLIP-2、LLaVA、Mini-LLaVA、部署与优化方向。</li>
-                            <li>形成 Mini-LLaVA 模块拆分：vision encoder、LLM decoder、projector、dataset、train、infer。</li>
-                            <li>补充 shape 校验、前向检查和最小测试，降低后续重构时的接口风险。</li>
-                            <li>当前展示为学习型工程实践，不把短训或示例脚本夸大为完整 SOTA 复现。</li>
-                        </ul>
                     </section>
 
                     <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> 返回项目列表</a>

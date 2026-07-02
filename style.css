@@ -459,6 +459,46 @@ h2 i {
     color: var(--muted);
 }
 
+.resume-description {
+    font-size: 1.02rem;
+    color: var(--ink);
+}
+
+.contribution-list {
+    counter-reset: item;
+    list-style: none;
+    display: grid;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.contribution-list li {
+    counter-increment: item;
+    position: relative;
+    padding-left: 48px;
+    color: var(--muted);
+}
+
+.contribution-list li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--teal);
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.contribution-list strong {
+    color: var(--ink);
+}
+
 .feature-list {
     list-style: none;
     display: grid;
